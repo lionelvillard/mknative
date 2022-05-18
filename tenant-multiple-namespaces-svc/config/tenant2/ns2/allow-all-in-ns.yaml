@@ -1,0 +1,24 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-all-in-ns
+  namespace: tenant2-ns2
+spec:
+  podSelector: { }
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: tenant2-ns2
+  egress:
+    - to:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: tenant2-ns2
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: kube-system
+  policyTypes:
+    - Ingress
+    - Egress
+

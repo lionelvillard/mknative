@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ping-ns2
+  namespace: tenant1-ns1
+spec:
+  containers:
+    - name: ping
+      image:  docker.io/villardl/ping
+      env:
+        - name: TARGET
+          value: "http://pong.tenant1-ns2:8080"

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pong
+  namespace: tenant1-ns2
+  labels:
+    app.kubernetes.io/name: pong
+spec:
+  containers:
+    - name: pong
+      image:  docker.io/villardl/pong
+      ports:
+        - containerPort: 8080
