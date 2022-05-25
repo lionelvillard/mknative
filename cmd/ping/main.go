@@ -15,6 +15,15 @@ func main() {
     }
     log.Printf("target:  %s\n", target)
 
+    // Start an HTTP Server
+    h := http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+        w.WriteHeader(http.StatusOK)
+    })
+    server := http.Server{Addr: ":8080", Handler: h}
+    go server.ListenAndServe()
+
+
+
     transport := http.DefaultTransport.(*http.Transport).Clone()
 
     // make sure to create a connection per request
@@ -38,12 +47,11 @@ func main() {
                     log.Printf("an error occurred while reading the HTTP response: %v\n", err)
                 } else {
                     resp.Body.Close()
-                    log.Printf("ping failed: %s\n", string(payload))
+                    log.Printf("ping failed: %s (code: %d)\n", string(payload), resp.StatusCode)
                 }
             }
         }
 
         time.Sleep(2 * time.Second)
-
     }
 }

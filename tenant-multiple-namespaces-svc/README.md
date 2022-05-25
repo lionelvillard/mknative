@@ -1,4 +1,4 @@
-# Multiple Namespaces per Tenant Setup
+# Multiple Namespaces per Tenant Pod Setup
 
 In this setup, there are two tenants both owning two namespaces.
 
