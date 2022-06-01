@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tenant1-ns1
+  annotations:
+    serving.knative.dev/tenant: tenant1
+    serving.knative.dev/tenant-port: "8082"
+

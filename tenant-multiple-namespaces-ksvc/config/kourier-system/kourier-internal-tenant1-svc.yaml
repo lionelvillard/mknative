@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kourier-internal-tenant1
+  namespace: kourier-system
+  labels:
+    networking.knative.dev/ingress-provider: kourier
+    app.kubernetes.io/component: net-kourier
+    app.kubernetes.io/version: devel
+    app.kubernetes.io/name: knative-serving
+spec:
+  ports:
+    - name: http2
+      port: 80
+      protocol: TCP
+      targetPort: 8082
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8444 # TODO
+  selector:
+    app: 3scale-kourier-gateway
+  type: ClusterIP

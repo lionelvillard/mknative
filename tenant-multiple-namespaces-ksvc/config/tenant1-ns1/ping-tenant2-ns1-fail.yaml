@@ -1,0 +1,16 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ping-tenant2-ns1-fail
+  namespace: tenant1-ns1
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/min-scale: "1"
+    spec:
+      containers:
+        - image: docker.io/villardl/ping
+          env:
+            - name: TARGET
+              value: "http://pong.tenant2-ns2"
