@@ -4,7 +4,7 @@ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   name: deny-all
-  namespace: tenant1-ns1 # replace by the actual tenant namespace
+  namespace: <tenant-ns>
 spec:
   podSelector: {}
   policyTypes:

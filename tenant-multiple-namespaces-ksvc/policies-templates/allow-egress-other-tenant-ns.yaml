@@ -2,13 +2,13 @@ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   name: allow-egress-other-tenant-ns
-  namespace: tenant1-ns1
+  namespace: <tenant-ns>
 spec:
   podSelector: {}
   egress:
     - to:
       - namespaceSelector:
           matchLabels:
-            knative.dev/tenant: tenant1
+            kourier.knative.dev/listenen: <tenant-listener>
   policyTypes:
     - Egress

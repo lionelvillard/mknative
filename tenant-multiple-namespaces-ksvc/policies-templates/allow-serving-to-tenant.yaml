@@ -2,7 +2,7 @@ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   name: allow-serving-to-tenant
-  namespace: tenant1-ns1
+  namespace: <tenant-ns>
 spec:
   podSelector: {}
   ingress:

@@ -2,19 +2,19 @@ kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
   name: allow-all-from-to-tenant-ns
-  namespace: tenant1-ns1
+  namespace: <tenant-ns>
 spec:
   podSelector: {}
   ingress:
     - from:
       - namespaceSelector:
           matchLabels:
-            knative.dev/tenant: tenant1
+            kourier.knative.dev/listener: <tenant-listener>
   egress:
     - to:
       - namespaceSelector:
           matchLabels:
-            knative.dev/tenant: tenant1
+            kourier.knative.dev/listener: <tenant-listener>
   policyTypes:
     - Egress
     - Ingress

@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   name: tenant1-ns2
   annotations:
-    serving.knative.dev/tenant: tenant1
-    serving.knative.dev/tenant-port: "8082"
+    kourier.knative.dev/listener: tenant1
+    kourier.knative.dev/listener-port: "8082"

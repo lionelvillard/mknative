@@ -4,7 +4,7 @@ metadata:
   name: allow-all-in-ns
   namespace: tenant1-ns2
 spec:
-  podSelector: { }
+  podSelector: {}
   ingress:
     - from:
       - namespaceSelector:
