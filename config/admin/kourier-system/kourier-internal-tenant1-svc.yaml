@@ -14,10 +14,6 @@ spec:
       port: 80
       protocol: TCP
       targetPort: 8082
-    - name: https
-      port: 443
-      protocol: TCP
-      targetPort: 8444 # TODO
   selector:
     app: 3scale-kourier-gateway
   type: ClusterIP
