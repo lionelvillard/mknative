@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: tenant1-ns2
+  labels:
+    admin.knative.dev/tenant-name: tenant1
   annotations:
-    kourier.knative.dev/listener: tenant1
     kourier.knative.dev/listener-port: "8082"

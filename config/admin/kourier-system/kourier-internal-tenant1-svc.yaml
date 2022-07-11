@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: kourier-internal-tenant1
+  name: kourier-isolation-8082
   namespace: kourier-system
   labels:
     networking.knative.dev/ingress-provider: kourier

@@ -55,7 +55,7 @@ When adding a new tenant, you need to:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kourier-internal-<listener>
+  name: kourier-isolation-<listenerPort>
   namespace: kourier-system
   labels:
     networking.knative.dev/ingress-provider: kourier
@@ -97,17 +97,15 @@ spec:
 
 ### Assigning a namespace to a tenant
 
-Create a namespace and then add these 2 annotations:
+Create a namespace and then add this annotation:
 
-- `kourier.knative.dev/listener`: the envoy listener suffix to use
 - `kourier.knative.dev/listener-port`: the envoy listener port
 
-There can be multiple namespaces sharing the same annotation values.
-Make sure that for a given listener the same port is used accross all namespaces belonging to a single tenant.
+There can be multiple namespaces sharing the same annotation value.
 
-Kourier does not check the provided values are valid and consistent (yet), so be careful.
+Kourier does not check the provided value is valid, so be careful.
 
-The annotations must be added before allowing the creation of Knative services in the namespace.
+The annotation must be added before allowing the creation of Knative services in the namespace.
 
 ### Deleting a tenant namespace
 
@@ -115,8 +113,7 @@ No specific actions need to be performed.
 
 ### Deleting a tenant
 
-Delete the `kourier-internal-<listener>` service associated to the tenant
-
+Delete the `kourier-isolation-<listener-port>` service associated to the tenant
 
 ## Demo
 
@@ -199,11 +196,6 @@ $ kubectl logs -n tenant1-ns1 ping-tenant2-ns1-fail-00001-deployment-66879c89cf-
 2022/07/05 18:50:23 ping failed: Get "http://pong.tenant2-ns1": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
 
 ```
-
-
-
-
-
 
 
 ## TODOs

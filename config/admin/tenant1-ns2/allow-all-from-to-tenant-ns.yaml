@@ -9,12 +9,12 @@ spec:
     - from:
       - namespaceSelector:
           matchLabels:
-            kourier.knative.dev/listener: tenant1
+            admin.kourier.dev/tenant-name: tenant1
   egress:
     - to:
       - namespaceSelector:
           matchLabels:
-            kourier.knative.dev/listener: tenant1
+            admin.kourier.dev/tenant-name: tenant1
   policyTypes:
     - Egress
     - Ingress
