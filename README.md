@@ -14,19 +14,6 @@ Start a kind cluster with the Calico CNI plugin and Knative Serving:
 $ ./hack/setup-kind-with-kn.sh
 ```
 
-Then clone `net-kourier` and check out the patched Kourier (the easiest way is to use
-the [GitHub CLI](https://cli.github.com)):
-
-```shell
-$ gh pr checkout 852
-```
-
-And deploy (you need [ko](https://github.com/google/ko)):
-
-```
-$ ko apply -f config
-```
-
 Enable port-level network isolation:
 
 ```shell
